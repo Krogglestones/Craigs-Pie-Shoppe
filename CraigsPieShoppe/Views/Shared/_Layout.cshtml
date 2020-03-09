@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Craigs Pie Shoppe</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.min.css" />
+    <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -24,6 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="List">Pies</a>
+                        </li>
+                        @*@await Component.InvokeAsync("CategoryMenu")*@
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                        <partial name="_LoginPartial" />
                     </ul>
                 </div>
             </div>
@@ -31,7 +42,9 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            <div class="row">
+                @RenderBody()
+            </div>
         </main>
     </div>
 
